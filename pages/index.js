@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import buildspaceLogo from "../assets/buildspace-logo.png";
+import Logo from "../assets/logo.png";
 import { useState } from "react";
 
 const Home = () => {
@@ -35,16 +35,16 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Writer | buildspace</title>
+        <title>GPT-3 Writer | By Afrodev</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Generate intuitive headlines for your startup</h1>
+            <h1>Generate intuitive contents</h1>
           </div>
           <div className="header-subtitle">
             <h2>
-              Your headlines define you, Let's create magic with AI.
+              Your articles define you, Let's create magic with AI.
             </h2>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Home = () => {
           rel="noreferrer"
         >
           <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
+            <Image src={Logo} alt="buildspace logo" />
             <p>build with buildspace</p>
           </div>
         </a>

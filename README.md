@@ -1,3 +1,3 @@
-# buildspace 
-### Welcome 👋
-This is the starter template for the [build your own AI writing assistant w/ GPT-3](https://buildspace.so/builds/ai-writer) project.
+### Create intriguing articles with Artificial Intelligence
+
+This is an implentation of GPT-3 Engine powered by Open AI. 
