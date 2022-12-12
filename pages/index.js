@@ -43,9 +43,7 @@ const Home = () => {
             <h1>Generate intuitive contents</h1>
           </div>
           <div className="header-subtitle">
-            <h2>
-              Your articles define you, Let's create magic with AI.
-            </h2>
+            <h2>Your articles define you, Let's create magic with AI.</h2>
           </div>
         </div>
         <div className="prompt-container">
@@ -78,18 +76,19 @@ const Home = () => {
           )}
         </div>
       </div>
-      {/* <div className="badge-container grow">
+      <div className="badge-container grow">
         <a
-          href="https://buildspace.so/builds/ai-writer"
+          href="https://github.com/johnexzy/annibo-chromium-extension/blob/master/dist/annibo-chromium-extension-master.zip?raw=true"
           target="_blank"
+          download
           rel="noreferrer"
         >
           <div className="badge">
             <Image src={Logo} alt="buildspace logo" />
-            <p>build with buildspace</p>
+            <p>Try the chrome Extension</p>
           </div>
         </a>
-      </div> */}
+      </div>
     </div>
   );
 };
