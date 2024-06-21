@@ -1,10 +1,9 @@
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
+
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = `
 Write me a detailed table of contents for a blog post with the title below.
@@ -15,14 +14,14 @@ Title:
 const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
 
-  const baseCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
+  const baseCompletion = await openai.completions.create({
+    model: "gpt-3.5-turbo-instruct",
     prompt: `${basePromptPrefix}${req.body.userInput}`,
     temperature: 0.8,
     max_tokens: 250,
   });
 
-  const basePromptOutput = baseCompletion.data.choices.pop();
+  const basePromptOutput = baseCompletion.choices.pop();
 
   // I build Prompt #2.
   const secondPrompt = `
@@ -36,8 +35,8 @@ const generateAction = async (req, res) => {
   `;
 
   // I call the OpenAI API a second time with Prompt #2
-  const secondPromptCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
+  const secondPromptCompletion = await openai.completions.create({
+    model: "gpt-3.5-turbo-instruct",
     prompt: `${secondPrompt}`,
     // I set a higher temperature for this one. Up to you!
     temperature: 0.85,
@@ -46,8 +45,9 @@ const generateAction = async (req, res) => {
   });
 
   // Get the output
-  const secondPromptOutput = secondPromptCompletion.data.choices.pop();
+  const secondPromptOutput = secondPromptCompletion.choices.pop();
 
+  console.log(secondPromptOutput);
   // Send over the Prompt #2's output to our UI instead of Prompt #1's.
   res.status(200).json({ output: secondPromptOutput });
 };
